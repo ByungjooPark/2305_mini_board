@@ -1,8 +1,9 @@
 <?php
-	define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
-	define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
+	define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
+	define( "URL_DB", SRC_ROOT."common/db_common.php" );
 	include_once( URL_DB );
 
+	// GET 체크
 	if( array_key_exists( "page_num", $_GET ) )
 	{
 		$page_num = $_GET["page_num"];
@@ -28,6 +29,8 @@
 			"limit_num"	=> $limit_num
 			,"offset"	=> $offset
 		);
+
+	// 페이징용 데이터 검색
 	$result_paging = select_board_info_paging( $arr_prepare );
 ?>
 

@@ -1,5 +1,11 @@
 <?php
 
+// ---------------------------------
+// 함수명	: db_conn
+// 기능		: DB Connection
+// 파라미터	: Obj	&$param_conn
+// 리턴값	: 없음
+// ---------------------------------
 function db_conn( &$param_conn )
 {
 	$host = "localhost";
@@ -26,6 +32,12 @@ function db_conn( &$param_conn )
 	}
 }
 
+// ---------------------------------
+// 함수명	: select_board_info_paging
+// 기능		: 페이징_게시판 정보 검색
+// 파라미터	: Array		&$param_arr
+// 리턴값	: Array		$result
+// ---------------------------------
 function select_board_info_paging( &$param_arr )
 {
 	$sql =
@@ -68,6 +80,12 @@ function select_board_info_paging( &$param_arr )
 	return $result;
 }
 
+// ---------------------------------
+// 함수명	: select_board_info_cnt
+// 기능		: 게시판 정보 테이블 레코드 카운트 검색
+// 파라미터	: 없음
+// 리턴값	: Array		$result
+// ---------------------------------
 function select_board_info_cnt()
 {
 	$sql =
@@ -99,15 +117,3 @@ function select_board_info_cnt()
 
 	return $result;
 }
-
-
-// TODO : test Start
-//$arr =
-//	array(
-//		"limit_num"	=> 5
-//		,"offset"	=> 0
-//	);
-//$result = select_board_info_paging( $arr );
-
-//print_r( $result );
-// TODO : test End
