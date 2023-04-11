@@ -41,33 +41,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel='stylesheet' href='css/common.css'>
 	<title>게시판</title>
 </head>
 <body>
-	<table class='table table-striped'>
-		<thead>
-			<tr>
-				<th>게시글 번호</th>
-				<th>게시글 제목</th>
-				<th>작성일자</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-				foreach( $result_paging as $recode )
-				{
-			?>
-					<tr>
-						<td><?php echo $recode["board_no"] ?></td>
-						<td><?php echo $recode["board_title"] ?></td>
-						<td><?php echo $recode["board_write_date"] ?></td>
-					</tr>
-			<?php
-				}
-			?>
-		</tbody>
-	</table>
+	<div class='div_base'>
+		<table class='table table-striped'>
+			<thead>
+				<tr>
+					<th>게시글 번호</th>
+					<th>게시글 제목</th>
+					<th>작성일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					foreach( $result_paging as $recode )
+					{
+				?>
+						<tr>
+							<td><?php echo $recode["board_no"] ?></td>
+							<td><a href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
+							<td><?php echo $recode["board_write_date"] ?></td>
+						</tr> 
+				<?php
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
 	<div>
+		<!-- 페이징 번호 -->
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )
 			{
