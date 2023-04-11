@@ -57,7 +57,7 @@
 		<input type="text" name="board_contents" id="contents" value="<?php echo $result_info["board_contents"] ?>">
 		<br>
 		<button type="submit">수정</button>
+		<button type=""><a href="board_list.php">리스트로</a></button>
 	</form>
-
 </body>
 </html>
