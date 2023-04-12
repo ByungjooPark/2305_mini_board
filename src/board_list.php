@@ -32,6 +32,10 @@
 
 	// 페이징용 데이터 검색
 	$result_paging = select_board_info_paging( $arr_prepare );
+
+	$prev_page_num = $page_num - 1 > 0 ? $page_num - 1 : 1;
+	$next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -40,18 +44,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<link rel='stylesheet' href='css/common.css'>
 	<title>게시판</title>
 </head>
 <body>
-	<div class='div_base'>
-		<table class='table table-striped'>
+	<div class="container">
+		<table class='table-striped'>
 			<thead>
 				<tr>
-					<th>게시글 번호</th>
+					<th class="radius-left">게시글 번호</th>
 					<th>게시글 제목</th>
-					<th>작성일자</th>
+					<th class="radius-right">작성일자</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,27 +63,37 @@
 					{
 				?>
 						<tr>
-							<td><?php echo $recode["board_no"] ?></td>
-							<td><a href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
-							<td><?php echo $recode["board_write_date"] ?></td>
+							<td class="radius-left"><?php echo $recode["board_no"] ?></td>
+							<td class=""><a href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
+							<td class="radius-right"><?php echo $recode["board_write_date"] ?></td>
 						</tr> 
 				<?php
 					}
 				?>
 			</tbody>
 		</table>
-	</div>
-	<div>
 		<!-- 페이징 번호 -->
+		<div class="button">
+			<a href="board_list.php?page_num=<?php echo $prev_page_num ?>" class="button_a">◀</a>
 		<?php
 			for( $i = 1; $i <= $max_page_num; $i++ )
 			{
 		?>
-				<a href='board_list.php?page_num=<?php echo $i ?>' class='btn btn-primary'><?php echo $i ?></a>
+				<a href="board_list.php?page_num=<?php echo $i ?>" class="button_a"><?php echo $i ?></a>
 		<?php
 			}
 		?>
+			<a href="board_list.php?page_num=<?php echo $next_page_num ?>" class="button_a">▶</a>
+		</div>
 	</div>
 
+	<?php 
+		for($i = 0; $i < 9 ; $i++)
+		{
+	?>
+			<div class="snowflake">★</div>
+	<?php
+		}
+	?>
 </body>
 </html>
