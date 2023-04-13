@@ -1,6 +1,7 @@
 <?php
 	define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
 	define( "URL_DB", SRC_ROOT."common/db_common.php" );
+	define( "URL_HEADER", SRC_ROOT."board_header.php" );
 	include_once( URL_DB );
 
 	// GET 체크
@@ -48,7 +49,11 @@
 	<title>게시판</title>
 </head>
 <body>
+	<?php include_once( URL_HEADER ) ?>
 	<div class="container">
+		<div class="button_i">
+			<a href="board_insert.php" class="button_a_b radius-right radius-left">게시글 작성</a>
+		</div>
 		<table class='table-striped'>
 			<thead>
 				<tr>
@@ -72,6 +77,7 @@
 				?>
 			</tbody>
 		</table>
+
 		<!-- 페이징 번호 -->
 		<div class="button">
 			<a href="board_list.php?page_num=<?php echo $prev_page_num ?>" class="button_a">◀</a>

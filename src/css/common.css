@@ -35,6 +35,10 @@ h1 {
     font-weight: 800;
 }
 
+h1 a:visited {
+    color: rgb(87, 118, 255);
+}
+
 td {
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -69,6 +73,10 @@ th {
 .button{
     text-align: center;
 }
+.button_i {
+    text-align: right;
+    margin: 0 30px;
+}
 
 .button_a {
     display: inline-block;
@@ -77,12 +85,32 @@ th {
     border-radius: 50%;
     background-color: rgb(142, 162, 255);
     color: rgb(255, 255, 255);
-    text-decoration: none;
     text-align: center;
     font-size: 15px;
     line-height: 40px;
     font-weight: 500;
     margin: 0 2px;
+}
+
+.button_a_b {
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    background-color: rgb(142, 162, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    line-height: 40px;
+    font-weight: 500;
+    margin: 0 2px;
+}
+
+.aline_right {
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
 }
 
 .button_a:hover {

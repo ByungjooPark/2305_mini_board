@@ -1,6 +1,7 @@
 <?php
 define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
 define( "URL_DB", SRC_ROOT."common/db_common.php" );
+define( "URL_HEADER", SRC_ROOT."board_header.php" );
 include_once( URL_DB );
 
 // Request Parameter 획득(GET)
@@ -8,8 +9,6 @@ $arr_get = $_GET;
 
 // DB에서 게시글 정보 획득
 $result_info = select_board_info_no( $arr_get["board_no"] );
-
-
 
 ?>
 
@@ -23,6 +22,7 @@ $result_info = select_board_info_no( $arr_get["board_no"] );
 	<title>Detail</title>
 </head>
 <body>
+	<?php include_once( URL_HEADER ) ?>
 	<div class="container">
 		<table class='table-striped'>
 			<tr>

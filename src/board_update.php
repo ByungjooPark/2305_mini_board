@@ -1,6 +1,7 @@
 <?php
 	define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
 	define( "URL_DB", SRC_ROOT."common/db_common.php" );
+	define( "URL_HEADER", SRC_ROOT."board_header.php" );
 	include_once( URL_DB );
 	
 	// Request Method를 획득
@@ -48,6 +49,7 @@
 	<title>게시판</title>
 </head>
 <body>
+	<?php include_once( URL_HEADER ) ?>
 	<form method="post" action="board_update.php">
 		<div class="container">
 			<table class='table-striped'>
